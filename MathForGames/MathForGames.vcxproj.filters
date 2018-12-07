@@ -18,9 +18,21 @@
     <ClCompile Include="UTILS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PointsVectors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vec3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UTILS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PointsVectors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

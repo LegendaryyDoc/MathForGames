@@ -16,10 +16,15 @@ int clamp(int value, int min, int max)
 	{
 		return value;
 	}
-	else
+	else if (value < min)
 	{
-		return 0;
+		return min;
 	}
+	else if (value > max)
+	{
+		return max;
+	}
+	return value;
 }
 
 double DEG_TO_RAD(float deg)
@@ -55,34 +60,61 @@ int pow(int base, int power)
 
 bool isPowerOfTwo(int val)
 {
-	int lower_bound = 0;
-	int upper_bound = val;
-	int temp = 0;
-
 	if (val <= 0)
 	{
 		return 0;       // if negative number throw an exception
 	}
 	
-	while (temp != val)
+	for (int i = 2; i < val; i++)
 	{
-		temp = ((lower_bound + upper_bound) / 2);
-
-			if (temp * temp == val)
-			{
-				return true;
-			}
-			else if (temp * temp > val)
-			{
-				upper_bound = temp;
-			}
-			else if (temp * temp < val)
-			{
-				lower_bound = temp;
-			}
-			else
-			{
-				return false;
-			}
+		if (i * i == val)
+		{
+			return true;
+		}
+		else if (i * i > val)
+		{
+			return false;
+		}
 	}
+	return false;
+}
+
+int nextPowerOfTwo(int val)
+{
+	if (val <= 0)
+	{
+		return 0;       // if negative number throw an exception
+	}
+
+	for (int i = 2; i < val; i++)
+	{
+		if (i * i == val)
+		{
+			return val;
+		}
+		else if (i * i > val)
+		{
+			return i * i;
+		}
+	}
+	return val;
+}
+
+float moveTowards(float current, float target, float maxDelta)
+{
+	if (current < target && target > maxDelta)
+	{
+		current += maxDelta;
+		return current;
+	}
+	else if (current < target && target < maxDelta)
+	{
+		current += target - current;
+		return current;
+	}
+	else if (current == target)
+	{
+		return current;
+	}
+	return current;
 }

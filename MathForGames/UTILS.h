@@ -25,3 +25,9 @@ int pow(int base, int power);
 
 // Returns true if is a power of 2
 bool isPowerOfTwo(int val);
+
+// Returns the next power of two after the given value
+int nextPowerOfTwo(int val);
+
+// Moves current to target but cannot be greater than max
+float moveTowards(float current, float target, float maxDelta);
