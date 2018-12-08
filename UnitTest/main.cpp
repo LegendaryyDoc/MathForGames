@@ -1,11 +1,15 @@
 #include <iostream>
+#include "raylib.h"
+#include "PointsVectors.h" 
 #include "UTILS.h"
-#include "PointsVectors.h"
 #include "vec3.h"
+#include "player.h"
+
+
 
 int main()
 {
-	int up = min(2, 3);
+	/*int up = min(2, 3);
 	int down = max(12, 2);
 	int c = clamp(83, 12, 82);
 	double rad = DEG_TO_RAD(30.0f);
@@ -81,13 +85,78 @@ int main()
 	std::cout << "Vec2 float* 0: " << val[0] << std::endl;
 	std::cout << "Vec2 float* 1: " << val[1] << std::endl;
 
-	/*    Vector3    */
 	vec3 v3a, v3b, v3c;
 
 	v3a = { 10, 20, 16 };
 	v3b = { 30, 15, 12 };
 	v3c = v3a + v3b;
-	std::cout << "Vec3 addition: " << v3c.x << "," << v3c.y << "," << v3c.z << std::endl;
+	std::cout << "Vec3 addition: " << v3c.x << "," << v3c.y << "," << v3c.z << std::endl;*/
+
+	// Initialization
+	//--------------------------------------------------------------------------------------
+	int screenWidth = 800;
+	int screenHeight = 450;
+
+	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+
+	player p;
+	p.pos = { 100,100 };
+	p.speed = 100.0f;
+
+	vec2 cursor;
+
+	SetTargetFPS(60);
+	//--------------------------------------------------------------------------------------
+
+	// Main game loop
+	while (!WindowShouldClose())    // Detect window close button or ESC key
+	{
+		cursor = GetMousePosition();
+
+		// Update
+		p.distanceAway();
+
+		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+		{
+			p.dest = cursor;
+
+			std::cout << p.d << std::endl;
+		}
+		//p.move();
+
+		if (p.pos.x + (p.cSize) > screenWidth || p.pos.x - (p.cSize) < screenWidth - screenWidth)
+		{
+			p.xreverse = true;	
+		}
+
+		if (p.pos.y + (p.cSize) > screenHeight || p.pos.y - (p.cSize) < screenHeight - screenHeight)
+		{
+			p.yreverse = true;
+		}
+		p.randomMove();
+
+		//----------------------------------------------------------------------------------
+		// TODO: Update your variables here
+		//----------------------------------------------------------------------------------
+
+		// Draw
+		//----------------------------------------------------------------------------------
+		BeginDrawing();
+
+		ClearBackground(BLACK);
+
+		//DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+
+		p.draw();
+
+		EndDrawing();
+		//----------------------------------------------------------------------------------
+	}
+
+	// De-Initialization
+	//--------------------------------------------------------------------------------------   
+	CloseWindow();        // Close window and OpenGL context
+						  //--------------------------------------------------------------------------------------
 
 	return 0;
 }

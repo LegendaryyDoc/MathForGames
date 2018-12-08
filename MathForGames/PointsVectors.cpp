@@ -121,14 +121,25 @@ vec2 & vec2::normalize()
 	}
 	else
 	{
-		*this *= (1.0f / magnitude());
+		*this *= magnitude();
 		return *this;
 	}
 }
 
 vec2 vec2::getNormalized() const
 {
-	return *this;
+	vec2 n;
+	n.x = x;
+	n.y = y;
+
+	if (magnitude() == 0)
+	{
+		return n;
+	}
+	n.x /= magnitude();
+	n.y /= magnitude();
+
+	return n;
 }
 
 vec2 & vec2::scale(const vec2 & rhs)
@@ -171,12 +182,26 @@ vec2 & vec2::operator/=(const float rhs)
 	return *this;
 }
 
+float vec2::dot(const vec2 & rhs) const
+{
+	float dotp;
+
+	dotp = ((x * rhs.x) + (y + rhs.y));
+
+	return dotp;
+}
+
 vec2 operator*(const float lhs, const vec2 & rhs)
 {
 	vec2 v3;
 
 	v3.x = rhs.x * lhs;
 	v3.y = rhs.y * lhs;
+
+	float scalar = 3.5f;
+	vec2 dir = { 0, 1 };
+
+	vec2 newVelocity = scalar * dir;
 
 	return v3;
 }

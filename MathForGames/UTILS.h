@@ -9,7 +9,11 @@ int max(int a, int b);
 // Returns a value in the scope
 int clamp(int value, int min, int max);
 
-const double PI = 3.141592653589793238;
+//const double PI = 3.141592653589793238;
+
+#ifndef PI
+	#define PI 3.14159265358979323846f
+#endif
 
 // Returns a conversion from a degree to a radian
 double DEG_TO_RAD(float deg);

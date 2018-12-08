@@ -8,6 +8,8 @@ struct vec2
 	vec2();
 	vec2(float x, float y);
 
+
+
 	/*--- Operators ---*/
 	vec2 operator+(const vec2 &rhs) const;
 	vec2 operator-(const vec2 &rhs) const;
@@ -38,12 +40,36 @@ struct vec2
 
 	vec2 &operator*=(const float rhs);
 	vec2 &operator/=(const float rhs);
+
+#ifdef RAYLIB_H
+	vec2(Vector2 vec)
+	{
+		x = vec.x;
+		y = vec.y;
+	}
+
+	vec2& operator=(const Vector2& a)
+	{
+		x = a.x;
+		y = a.y;
+
+		return *this;
+	}
+
+	operator Vector2()
+	{
+		return { x, y };
+	}
+#endif
+
+	/*------------------------*/
+	float dot(const vec2 &rhs) const;
 };
 
 /*******************************************/
 /*******************************************/
 
-template<unsigned D>
+/*template<unsigned D>
 struct vec
 {
 	float data[D];
@@ -63,12 +89,12 @@ struct vec
 
 	operator float *();
 	operator const float *() const;
-};
+};*/
 
 /*******************************************/
 /*******************************************/
 
-template<unsigned D>
+/*template<unsigned D>
 inline vec<D>::vec()
 {
 }
@@ -131,16 +157,21 @@ template<unsigned D>
 inline bool vec<D>::operator==(const vec & rhs) const
 {
 	vec<D> temp;
+	bool eq[D];
 
 	for (size_t i = 0; i < D; ++i)
 	{
 		temp.data[i] = data[i] - rhs.data[i];
 		if(temp.data[i] < FLT_EPSILON)
 		{
-			return true;
+			eq[i] = true;
+		}
+		else
+		{
+			eq[i] = false;
 		}
 	}
-	return false;
+	return;
 }
 
 template<unsigned D>
@@ -163,4 +194,4 @@ inline vec<D>::operator float*()
 template<unsigned D>
 inline vec<D>::operator const float*() const
 {
-}
+}*/
