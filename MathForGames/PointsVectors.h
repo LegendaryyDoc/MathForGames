@@ -8,8 +8,6 @@ struct vec2
 	vec2();
 	vec2(float x, float y);
 
-
-
 	/*--- Operators ---*/
 	vec2 operator+(const vec2 &rhs) const;
 	vec2 operator-(const vec2 &rhs) const;
