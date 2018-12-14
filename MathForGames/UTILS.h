@@ -13,15 +13,15 @@ namespace nmath
 
 	//const double PI = 3.141592653589793238;
 
-#ifndef PI
+//#ifndef PI
 #define PI 3.14159265358979323846f
-#endif
+//#endif
 
 // Returns a conversion from a degree to a radian
-	double DEG_TO_RAD(float deg);
+	float DEG_TO_RAD(float deg);
 
 	// Returns a conversion from a radian to a degree
-	double RAD_TO_DEG(float rad);
+	float RAD_TO_DEG(float rad);
 
 	// Returns the absolute value
 	int abs(int val);

@@ -7,6 +7,51 @@ struct vec2
 
 	vec2();
 	vec2(float x, float y);
+//#ifdef RAYLIB_H
+//	vec2(Vector2 vec)
+//	{
+//		x = vec.x;
+//		y = vec.y;
+//	}
+//
+//	vec2& operator=(const Vector2& a)
+//	{
+//		x = a.x;
+//		y = a.y;
+//
+//		return *this;
+//	}
+//
+//	operator Vector2()
+//	{
+//		return { x, y };
+//	}
+//#endif
+
+#ifdef RAYLIB_H
+// constructor vec2 from Vector2
+	vec2(Vector2 vec)
+	{
+		x = vec.x;
+		y = vec.y;
+	}
+
+	// convert from Vector2 to vec2
+	vec2& operator =(const Vector2 &rhs)
+	{
+		x = rhs.x;
+		y = rhs.y;
+
+		return *this;
+	}
+
+	// convert from vec2 to Vector2
+	operator Vector2()
+	{
+		return { x , y };
+	}
+#endif
+
 
 	/*--- Operators ---*/
 	vec2 operator+(const vec2 &rhs) const;
@@ -39,26 +84,7 @@ struct vec2
 	vec2 &operator*=(const float rhs);
 	vec2 &operator/=(const float rhs);
 
-#ifdef RAYLIB_H
-	vec2(Vector2 vec)
-	{
-		x = vec.x;
-		y = vec.y;
-	}
 
-	vec2& operator=(const Vector2& a)
-	{
-		x = a.x;
-		y = a.y;
-
-		return *this;
-	}
-
-	operator Vector2()
-	{
-		return { x, y };
-	}
-#endif
 
 	/*------------------------*/
 	float dot(const vec2 &rhs) const;

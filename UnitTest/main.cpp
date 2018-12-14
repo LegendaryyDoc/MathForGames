@@ -4,7 +4,9 @@
 #include "UTILS.h"
 #include "vec3.h"
 #include "player.h"
-
+#include "assert.h"
+#include <string>
+#include <cassert>
 
 
 int main()
@@ -91,7 +93,7 @@ int main()
 	v3b = { 30, 15, 12 };
 	v3c = v3a + v3b;
 	std::cout << "Vec3 addition: " << v3c.x << "," << v3c.y << "," << v3c.z << std::endl;*/
-
+	/*
 	// Initialization
 	//--------------------------------------------------------------------------------------
 	int screenWidth = 800;
@@ -157,6 +159,17 @@ int main()
 	//--------------------------------------------------------------------------------------   
 	CloseWindow();        // Close window and OpenGL context
 						  //--------------------------------------------------------------------------------------
+*/
+
+	std::string tist = "true is true";
+
+	//nassert(tist.c_str(), true);
+
+	assert("min", 3, nmath::min(3, 7));
+	assert("max", 7, nmath::max(3, 7));
+	assert("clamp", 5, nmath::max(5, 3, 7)); // clamp(val, lowerBound, upperBound)
+
+	
 
 	return 0;
 }

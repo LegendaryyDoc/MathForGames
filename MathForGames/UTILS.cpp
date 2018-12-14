@@ -29,16 +29,16 @@ namespace nmath
 		return value;
 	}
 
-	double DEG_TO_RAD(float deg)
+	float DEG_TO_RAD(float deg)
 	{
-		double rad = (deg *(PI / 180));
+		float rad = (deg *(PI / 180));
 
 		return rad;
 	}
 
-	double RAD_TO_DEG(float rad)
+	float RAD_TO_DEG(float rad)
 	{
-		double deg = (rad / (PI / 180));
+		float deg = (rad / (PI / 180));
 
 		return deg;
 	}

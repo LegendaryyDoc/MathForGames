@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTe
 		{73DFA658-53C3-4522-BE6C-E4C54749ED63} = {73DFA658-53C3-4522-BE6C-E4C54749ED63}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Trig", "Trig\Trig.vcxproj", "{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -34,6 +36,14 @@ Global
 		{B7D9ED10-55B0-41FA-B4BC-77442922E395}.Release|x64.Build.0 = Release|x64
 		{B7D9ED10-55B0-41FA-B4BC-77442922E395}.Release|x86.ActiveCfg = Release|Win32
 		{B7D9ED10-55B0-41FA-B4BC-77442922E395}.Release|x86.Build.0 = Release|Win32
+		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Debug|x64.ActiveCfg = Debug|x64
+		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Debug|x64.Build.0 = Debug|x64
+		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Debug|x86.ActiveCfg = Debug|Win32
+		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Debug|x86.Build.0 = Debug|Win32
+		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Release|x64.ActiveCfg = Release|x64
+		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Release|x64.Build.0 = Release|x64
+		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Release|x86.ActiveCfg = Release|Win32
+		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
