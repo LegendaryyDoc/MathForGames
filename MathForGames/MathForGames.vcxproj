@@ -19,14 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="assert.cpp" />
     <ClCompile Include="PointsVectors.cpp" />
     <ClCompile Include="UTILS.cpp" />
     <ClCompile Include="vec3.cpp" />
+    <ClCompile Include="winterm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="assert.h" />
+    <ClInclude Include="Interpolation.h" />
     <ClInclude Include="PointsVectors.h" />
     <ClInclude Include="UTILS.h" />
     <ClInclude Include="vec3.h" />
+    <ClInclude Include="winterm.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

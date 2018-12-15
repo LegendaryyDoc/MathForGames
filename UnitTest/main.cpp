@@ -6,8 +6,14 @@
 #include "player.h"
 #include "assert.h"
 #include <string>
-#include <cassert>
+#include "assert.h"
+#include "lerp.h"
+#include "healthBar.h"
+#include "particleSimulation.h"
+#include "particleSpawner.h"
 
+#undef min
+#undef max
 
 int main()
 {
@@ -154,22 +160,111 @@ int main()
 		EndDrawing();
 		//----------------------------------------------------------------------------------
 	}
-
+	
 	// De-Initialization
 	//--------------------------------------------------------------------------------------   
 	CloseWindow();        // Close window and OpenGL context
 						  //--------------------------------------------------------------------------------------
-*/
+						  */
 
-	std::string tist = "true is true";
+	/*  Assert Unit Testing  */
 
-	//nassert(tist.c_str(), true);
+	/*
+	nassert("true is true", true);  // PASS
+	nassert("the opposite of false is true", !false); // PASS
+	nassert("1+1=2", 1 + 1 == 2); // PASS
+	nassert("1+2=4", 1 + 2 == 4); // FAIL
 
-	assert("min", 3, nmath::min(3, 7));
-	assert("max", 7, nmath::max(3, 7));
-	assert("clamp", 5, nmath::max(5, 3, 7)); // clamp(val, lowerBound, upperBound)
+	std::cout << " " << std::endl;
 
-	
+	nassert("min", 3, nmath::min(3.0f, 7.0f)); // PASS
+	nassert("max", 7, nmath::max(3.0f, 7.0f)); // PASS
+	nassert("clamp", 9, nmath::clamp(5.0f, 3.0f, 7.0f)); // FAIL
+
+	std::cout << " " << std::endl;
+
+	vec2 a = { 2,2 };
+	vec2 b = { 1,1 };
+	vec2 diff = a - b;
+
+	nassert("diff x", 1.0f, diff.x, .0001f); // PASS
+	nassert("diff y", 1.0f, diff.y, .0001f); // PASS
+	*/
+
+	/*  Interpolation  */
+
+	int screenWidth = 800;
+	int screenHeight = 450;
+
+	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+
+	SetTargetFPS(60);
+
+	lerpPlayer lp;
+	lp.pos = { 200,200 };
+
+	healthBar playerHealth;
+
+	particleSimulation ps;
+
+	std::vector<vec2> wayPoint;
+
+	wayPoint.push_back(vec2{ lp.pos });
+
+	particleSpawner spawner;
+
+	// Main game loop
+	while (!WindowShouldClose())
+	{
+		//playerHealth.update();
+
+		//ps.update();
+
+		spawner.create();
+
+		/*if (lp.elapse >= lp.duration)
+		{
+			lp.elapse = 0;
+		}
+
+		//std::cout << lp.elapse << std::endl;
+
+		vec2 cursor = GetMousePosition();
+
+		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+		{
+			wayPoint.push_back(vec2{cursor.x, cursor.y});
+		}
+
+		if (wayPoint.size() > 1)
+		{
+			lp.elapse += GetFrameTime();
+			lp.moveTo(wayPoint[lp.currentWayPoint], wayPoint[(lp.currentWayPoint + 1) % wayPoint.size()], wayPoint.size());
+		}*/
+
+		BeginDrawing();
+
+		ClearBackground(BLACK);
+
+		// DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+
+		/*
+		for (int i = 0; i < wayPoint.size(); i++)
+		{
+			DrawCircle(wayPoint[i].x, wayPoint[i].y, 5.0f, BLUE);
+		}*/
+
+		//lp.draw();
+
+		spawner.draw();
+
+		//ps.draw();
+
+		//playerHealth.draw();
+
+		EndDrawing();
+	}
+	CloseWindow();
 
 	return 0;
 }

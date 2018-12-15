@@ -131,10 +131,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="healthBar.cpp" />
+    <ClCompile Include="lerp.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="particleSimulation.cpp" />
+    <ClCompile Include="particleSpawner.cpp" />
     <ClCompile Include="player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="healthBar.h" />
+    <ClInclude Include="lerp.h" />
+    <ClInclude Include="particleSimulation.h" />
+    <ClInclude Include="particleSpawner.h" />
     <ClInclude Include="player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
