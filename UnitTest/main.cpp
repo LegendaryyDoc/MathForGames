@@ -11,6 +11,9 @@
 #include "healthBar.h"
 #include "particleSimulation.h"
 #include "particleSpawner.h"
+#include "UITransitions.h"
+#include "Easing.h"
+#include <cfloat>
 
 #undef min
 #undef max
@@ -200,12 +203,20 @@ int main()
 
 	SetTargetFPS(60);
 
+	vec2 cursor;
+
+	/*  Player  */
+
 	lerpPlayer lp;
 	lp.pos = { 200,200 };
+
+	/*  Player Health  */
 
 	healthBar playerHealth;
 
 	particleSimulation ps;
+
+	/*  WayPoint  */
 
 	std::vector<vec2> wayPoint;
 
@@ -213,14 +224,70 @@ int main()
 
 	particleSpawner spawner;
 
+	/*  UI Transitions  */
+
+	button click;
+
+	Rectangle cursorRec;
+	cursorRec.height = 1;
+	cursorRec.width = 1;
+
+	/*  Easing Functions  */
+
+	easingPlayer ep;
+	ep.pos = { 400, 200 };
+	vec2 currentPos = ep.pos;
+	vec2 currentCursor = ep.pos;
+
 	// Main game loop
 	while (!WindowShouldClose())
 	{
+		cursorRec.x = GetMouseX();
+		cursorRec.y = GetMouseY();
+
+		cursor = GetMousePosition();
+
+		ep.elapse += GetFrameTime();
+
+		/*---------------------------------------------------------------------*/
+
 		//playerHealth.update();
+
+		/*---------------------------------------------------------------------*/
 
 		//ps.update();
 
-		spawner.create();
+		/*---------------------------------------------------------------------*/
+
+		//spawner.create();
+
+		/*---------------------------------------------------------------------*/
+
+		//click.update(cursorRec);
+
+		/*---------------------------------------------------------------------*/
+		
+		if (ep.elapse >= ep.duration)
+		{
+			ep.elapse = 0;
+			currentPos = ep.pos;
+		}
+		
+		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+		{
+			ep.elapse = 0;
+			currentPos = ep.pos;
+			currentCursor = cursor;
+		}
+
+		if (ep.pos <= currentCursor + 10 && ep.pos >= currentCursor - 10)
+		{ 
+			ep.moveTo(currentPos, currentCursor);
+		}
+
+		std::cout << ep.pos.x << " " << ep.pos.y << " " << ep.elapse <<  std::endl;
+
+		/*---------------------------------------------------------------------*/
 
 		/*if (lp.elapse >= lp.duration)
 		{
@@ -242,11 +309,16 @@ int main()
 			lp.moveTo(wayPoint[lp.currentWayPoint], wayPoint[(lp.currentWayPoint + 1) % wayPoint.size()], wayPoint.size());
 		}*/
 
+		/*---------------------------------------------------------------------*/
+		/*---------------------------------------------------------------------*/
+
 		BeginDrawing();
 
 		ClearBackground(BLACK);
 
 		// DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+
+		/*---------------------------------------------------------------------*/
 
 		/*
 		for (int i = 0; i < wayPoint.size(); i++)
@@ -254,13 +326,31 @@ int main()
 			DrawCircle(wayPoint[i].x, wayPoint[i].y, 5.0f, BLUE);
 		}*/
 
+		/*---------------------------------------------------------------------*/
+
 		//lp.draw();
 
-		spawner.draw();
+		/*---------------------------------------------------------------------*/
+
+		//spawner.draw();
+
+		/*---------------------------------------------------------------------*/
 
 		//ps.draw();
 
+		/*---------------------------------------------------------------------*/
+
 		//playerHealth.draw();
+
+		/*---------------------------------------------------------------------*/
+
+		//click.draw();
+
+		/*---------------------------------------------------------------------*/
+
+		ep.draw();
+
+		/*---------------------------------------------------------------------*/
 
 		EndDrawing();
 	}

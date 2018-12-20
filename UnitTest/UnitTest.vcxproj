@@ -131,19 +131,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Easing.cpp" />
     <ClCompile Include="healthBar.cpp" />
     <ClCompile Include="lerp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="particleSimulation.cpp" />
     <ClCompile Include="particleSpawner.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="UITransitions.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Easing.h" />
     <ClInclude Include="healthBar.h" />
     <ClInclude Include="lerp.h" />
     <ClInclude Include="particleSimulation.h" />
     <ClInclude Include="particleSpawner.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="UITransitions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,6 +13,23 @@ vec2::vec2(float _x, float _y)
 }
 
 
+vec2 vec2::getPerpCW() const
+{
+	vec2 n;
+	n.x = y;
+	n.y = -x;
+	return n;
+
+}
+
+vec2 vec2::getPerpCCW() const
+{
+	vec2 n;
+	n.x = -y;
+	n.y = x;
+	return n;
+}
+
 /*--------- Operators ---------*/
 vec2 vec2::operator+(const vec2 & rhs) const
 {

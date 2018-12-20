@@ -35,17 +35,6 @@ void particleSpawner::create()
 	}
 }
 
-void particleSpawner::destruction()
-{
-	for (int i = 0; i < spawner.size(); i++)
-	{
-		if (spawner[i]->elapse / spawner[i]->duration)
-		{
-
-		}
-	}
-}
-
 void particleSpawner::draw()
 {
 	for (int i = 0; i < spawner.size(); i++)

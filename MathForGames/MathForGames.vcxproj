@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="assert.h" />
+    <ClInclude Include="EasingFunctions.h" />
     <ClInclude Include="Interpolation.h" />
     <ClInclude Include="PointsVectors.h" />
     <ClInclude Include="UTILS.h" />
