@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="assert.cpp" />
+    <ClCompile Include="Matrices.cpp" />
     <ClCompile Include="PointsVectors.cpp" />
     <ClCompile Include="UTILS.cpp" />
     <ClCompile Include="vec3.cpp" />
@@ -29,6 +30,7 @@
     <ClInclude Include="assert.h" />
     <ClInclude Include="EasingFunctions.h" />
     <ClInclude Include="Interpolation.h" />
+    <ClInclude Include="Matrices.h" />
     <ClInclude Include="PointsVectors.h" />
     <ClInclude Include="UTILS.h" />
     <ClInclude Include="vec3.h" />

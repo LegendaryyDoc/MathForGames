@@ -1,5 +1,6 @@
 #include "UTILS.h"
 
+int seed = 782469;
 namespace nmath
 {
 	int min(int a, int b)
@@ -119,5 +120,48 @@ namespace nmath
 			return current;
 		}
 		return current;
+	}
+	int rand(int min, int max)
+	{
+		int rSeed = seed * seed;
+		std::string sSeed = std::to_string(rSeed);
+		std::string nrSeed = "111111";
+
+		for (int i = 1; i < 7; ++i)
+		{
+			nrSeed[i] = sSeed[i];
+		}
+		seed = std::stoi(nrSeed);
+		int n = max - min + 1;
+		return seed % n;
+	}
+
+	float randDecimal(float min, float max)
+	{
+		int rSeed = seed * seed;
+		std::string sSeed = std::to_string(rSeed);
+		std::string nrSeed = "000000";
+
+		for (int i = 1; i < 7; i++) {
+			nrSeed[i] = sSeed[i];
+		}
+		float r = max - min + 1;
+		float m = fmod(seed, r);
+		if (m > max) {
+			return max;
+		}
+		if (m < min) {
+			return min;
+		}
+		return m;
+	}
+
+	void seedRand(int seedValue)
+	{
+		seed = seedValue;
+	}
+	int getRandSeed()
+	{
+		return seed;
 	}
 }

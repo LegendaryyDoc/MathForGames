@@ -30,6 +30,11 @@ vec2 vec2::getPerpCCW() const
 	return n;
 }
 
+float vec2::angleBetween(const vec2 & rhs) const
+{
+	return std::acos(dot(rhs) / magnitude() * rhs.magnitude());
+}
+
 /*--------- Operators ---------*/
 vec2 vec2::operator+(const vec2 & rhs) const
 {

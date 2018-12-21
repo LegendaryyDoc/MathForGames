@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 namespace nmath
 {
@@ -37,4 +38,17 @@ namespace nmath
 
 	// Moves current to target but cannot be greater than max
 	float moveTowards(float current, float target, float maxDelta);
+
+	// returns a random value between min and max
+	int rand(int min, int max);
+
+	// returns a random value between min and max
+	//  - the value may contain decimal components
+	float randDecimal(float min, float max);
+
+	// seed the random number generator
+	void seedRand(int seedValue);
+
+	// returns the seed used for the random number generator
+	int getRandSeed();
 }

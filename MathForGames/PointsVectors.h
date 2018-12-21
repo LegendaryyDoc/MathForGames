@@ -88,8 +88,6 @@ struct vec2
 	vec2 &operator*=(const float rhs);
 	vec2 &operator/=(const float rhs);
 
-
-
 	/*------------------------*/
 	float dot(const vec2 &rhs) const;
 };
