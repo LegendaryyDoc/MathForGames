@@ -1,4 +1,5 @@
 #include "Matrices.h"
+#include <cmath>
 
 mat3::mat3()
 {
@@ -93,20 +94,20 @@ vec3 & mat3::operator[](const int index)
 
 mat3 mat3::operator*(const mat3 & rhs) const
 {
-	mat3 alpha;
-	mat3 bravo = rhs.getTranspose();
+	mat3 alpha = getTranspose();
+	mat3 bravo;
 
-	alpha.m[0] = xAxis.dot(bravo.xAxis);
-	alpha.m[1] = xAxis.dot(bravo.yAxis);
-	alpha.m[2] = xAxis.dot(bravo.zAxis);
-	alpha.m[3] = yAxis.dot(bravo.xAxis);
-	alpha.m[4] = yAxis.dot(bravo.yAxis);
-	alpha.m[5] = yAxis.dot(bravo.zAxis);
-	alpha.m[6] = zAxis.dot(bravo.xAxis);
-	alpha.m[7] = zAxis.dot(bravo.yAxis);
-	alpha.m[8] = zAxis.dot(bravo.zAxis);
+	bravo.m[0] = alpha.xAxis.dot(rhs.xAxis);
+	bravo.m[1] = alpha.yAxis.dot(rhs.xAxis);
+	bravo.m[2] = alpha.zAxis.dot(rhs.xAxis);
+	bravo.m[3] = alpha.xAxis.dot(rhs.yAxis);
+	bravo.m[4] = alpha.yAxis.dot(rhs.yAxis);
+	bravo.m[5] = alpha.zAxis.dot(rhs.yAxis);
+	bravo.m[6] = alpha.xAxis.dot(rhs.zAxis);
+	bravo.m[7] = alpha.yAxis.dot(rhs.zAxis);
+	bravo.m[8] = alpha.zAxis.dot(rhs.zAxis);
 
-	return alpha;
+	return bravo;
 }
 
 mat3 & mat3::operator*=(const mat3 & rhs)
@@ -143,7 +144,7 @@ bool mat3::operator!=(const mat3 & rhs) const
 	return true;
 }
 
-mat3 mat3::identity() // !
+mat3 mat3::identity() // ! need to fix
 {
 	mat3 alpha;
 
@@ -181,4 +182,59 @@ void mat3::set(float * ptr)
 	{
 		m[i] = ptr[i];
 	}
+}
+
+mat3 mat3::translation(float x, float y)
+{
+	mat3 alpha;
+	alpha = alpha.identity();
+	alpha.zAxis.x = x;
+	alpha.zAxis.y = y;
+	return alpha;
+}
+
+mat3 mat3::translation(const vec2 & vec)
+{
+	mat3 alpha;
+	alpha = alpha.translation(vec.x, vec.y);
+	return alpha;
+}
+
+mat3 mat3::rotation(float rot)
+{
+	mat3 alpha;
+
+	for (int i = 0; i < 9; i++)
+	{
+		alpha.m[i] = 0;
+	}
+
+	alpha.m[0] = cos(rot);
+	alpha.m[3] = sin(rot);
+	alpha.m[1] = -sin(rot);
+	alpha.m[4] = cos(rot);
+	alpha.m[8] = 1;
+
+		return alpha;
+}
+
+mat3 mat3::scale(float xScale, float yScale)
+{
+	mat3 alpha;
+	for (int i = 0; i < 3; i++)
+	{
+		alpha.axis[i].x = xScale;
+		alpha.axis[i].y = yScale;
+		alpha.axis[i].z = 0;
+	}
+
+	return alpha;
+}
+
+vec3 mat3::operator*(const vec3 & rhs) const // 3x3 x 3x1
+{
+	mat3 alpha = getTranspose();
+	vec3 bravo;
+
+	return bravo;
 }
