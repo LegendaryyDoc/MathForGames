@@ -24,24 +24,36 @@ int main()
 {
 	float a[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	float b[9] = { 10, 11, 12, 13, 14, 15, 16, 17, 18 };
-	mat3 m3a, m3b, m3c, m3d;
+	//float b[9] = { 1,0,0,0,1,0,0,0,1 };
+
+	float x = 5;
+	float y = 2;
+
+	mat3 m3a, m3b, m3c, m3d, m3e, m3f, m3g, m3h;
+	vec2 v1 = { 5,2 };
 
 	m3a = a;
 	m3b = b;
 
-	m3a *= m3b;
+	m3a *= m3b; 
 
 	m3d = m3a.identity();
+	m3e = m3a.translation(x, y);
+	m3f = m3a.translation(v1);
+	m3g = m3a.scale(2, 2);
+	m3h = m3a.rotation(90);
 
 	for (int i = 0; i < 3; i++)
 	{
-		std::cout << m3a[i].x << " " << m3a[i].y << " " << m3a[i].z << std::endl;
+		//std::cout << m3a[i].x << " " << m3a[i].y << " " << m3a[i].z << std::endl;
 	}
 
-	nassert("Matrix3 multiply", m3a, mat3(84,90,96,201,216,231,318,342,366));
-	nassert("Matrix3 multiply", m3a, m3a.identity());
-
-	std::cout << "\n";
+	nassert("Matrix3 multiply", m3a, mat3(138,171,204,174,216,258,210,261,312));
+	nassert("Matrix3 identity", m3d, mat3(1,0,0,0,1,0,0,0,1));
+	nassert("Matrix3 translation1", m3e, mat3(1, 0, 0, 0, 1, 0, 5, 2, 1));
+	nassert("Matrix3 translation2", m3f, mat3(1, 0, 0, 0, 1, 0, 5, 2, 1));
+	nassert("Matrix3 scale", m3g, mat3(2, 2, 0, 2, 2, 0, 2, 2, 0));
+	nassert("Matrix3 rotate", m3h, mat3(-0.44807361612, -.8939966636, 0, 0.8939966636, -0.44807361612, 0, 0, 0, 1));
 
 	return 0;
 }
