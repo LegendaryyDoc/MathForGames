@@ -15,6 +15,7 @@
 #include "Easing.h"
 #include <cfloat>
 #include "Matrices.h"
+#include "transform2d.h"
 
 #undef min
 #undef max
@@ -43,6 +44,16 @@ int main()
 	m3g = m3a.scale(2, 2);
 	m3h = m3a.rotation(90);
 
+	transform2d t2a;
+	transform2d t2b;
+	transform2d t2c;
+
+	t2a.localPos = { 1,0 };
+	t2c.localPos = { 0,1 };
+
+	t2a.lookAt(t2c);
+	t2b.localRot = 1.5708;
+
 	for (int i = 0; i < 3; i++)
 	{
 		//std::cout << m3a[i].x << " " << m3a[i].y << " " << m3a[i].z << std::endl;
@@ -54,7 +65,7 @@ int main()
 	nassert("Matrix3 translation2", m3f, mat3(1, 0, 0, 0, 1, 0, 5, 2, 1));
 	nassert("Matrix3 scale", m3g, mat3(2, 2, 0, 2, 2, 0, 2, 2, 0));
 	nassert("Matrix3 rotate", m3h, mat3(-0.44807361612, -.8939966636, 0, 0.8939966636, -0.44807361612, 0, 0, 0, 1));
-
+	nassert("Transform2d rotate", t2a.localRot, t2b.localRot);
 	return 0;
 }
 

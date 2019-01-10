@@ -22,6 +22,7 @@
     <ClCompile Include="assert.cpp" />
     <ClCompile Include="Matrices.cpp" />
     <ClCompile Include="PointsVectors.cpp" />
+    <ClCompile Include="transform2d.cpp" />
     <ClCompile Include="UTILS.cpp" />
     <ClCompile Include="vec3.cpp" />
     <ClCompile Include="winterm.cpp" />
@@ -32,6 +33,7 @@
     <ClInclude Include="Interpolation.h" />
     <ClInclude Include="Matrices.h" />
     <ClInclude Include="PointsVectors.h" />
+    <ClInclude Include="transform2d.h" />
     <ClInclude Include="UTILS.h" />
     <ClInclude Include="vec3.h" />
     <ClInclude Include="winterm.h" />

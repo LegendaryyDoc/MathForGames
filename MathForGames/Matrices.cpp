@@ -1,4 +1,5 @@
 #include "Matrices.h"
+#include "PointsVectors.h"
 #include <cmath>
 
 mat3::mat3()
@@ -215,7 +216,7 @@ mat3 mat3::rotation(float rot)
 	alpha.m[4] = cos(rot);
 	alpha.m[8] = 1;
 
-		return alpha;
+	return alpha;
 }
 
 mat3 mat3::scale(float xScale, float yScale)
@@ -233,8 +234,32 @@ mat3 mat3::scale(float xScale, float yScale)
 
 vec3 mat3::operator*(const vec3 & rhs) const // 3x3 x 3x1
 {
-	mat3 alpha = getTranspose();
+	mat3 alpha;
 	vec3 bravo;
+
+	alpha = getTranspose();
+
+	bravo.x = alpha.xAxis.dot(rhs);
+	bravo.y = alpha.yAxis.dot(rhs);
+	bravo.z = alpha.zAxis.dot(rhs);
+
+	return bravo;
+}
+
+vec2 mat3::operator*(const vec2 & rhs) const // 3x3 x 2x1
+{
+	mat3 alpha;
+	vec2 bravo;
+	vec3 charlie;
+
+	charlie.x = rhs.x;
+	charlie.y = rhs.y;
+	charlie.z = 0;
+
+	alpha = getTranspose();
+
+	bravo.x = alpha.xAxis.dot(charlie);
+	bravo.y = alpha.yAxis.dot(charlie);
 
 	return bravo;
 }

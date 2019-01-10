@@ -86,5 +86,4 @@ struct mat3
 	vec3 operator*(const vec3 &rhs) const;
 	// convenience function for transforming a 2D vector
 	vec2 operator*(const vec2 &rhs) const;
-
-}
+};
