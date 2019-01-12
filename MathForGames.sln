@@ -12,6 +12,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Trig", "Trig\Trig.vcxproj", "{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tank", "Tank\Tank.vcxproj", "{C2E44356-2F73-4728-97EE-7F38FD0F59DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -44,6 +46,14 @@ Global
 		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Release|x64.Build.0 = Release|x64
 		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Release|x86.ActiveCfg = Release|Win32
 		{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}.Release|x86.Build.0 = Release|Win32
+		{C2E44356-2F73-4728-97EE-7F38FD0F59DF}.Debug|x64.ActiveCfg = Debug|x64
+		{C2E44356-2F73-4728-97EE-7F38FD0F59DF}.Debug|x64.Build.0 = Debug|x64
+		{C2E44356-2F73-4728-97EE-7F38FD0F59DF}.Debug|x86.ActiveCfg = Debug|Win32
+		{C2E44356-2F73-4728-97EE-7F38FD0F59DF}.Debug|x86.Build.0 = Debug|Win32
+		{C2E44356-2F73-4728-97EE-7F38FD0F59DF}.Release|x64.ActiveCfg = Release|x64
+		{C2E44356-2F73-4728-97EE-7F38FD0F59DF}.Release|x64.Build.0 = Release|x64
+		{C2E44356-2F73-4728-97EE-7F38FD0F59DF}.Release|x86.ActiveCfg = Release|Win32
+		{C2E44356-2F73-4728-97EE-7F38FD0F59DF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -143,7 +143,7 @@ vec2 & vec2::normalize()
 	}
 	else
 	{
-		*this *= magnitude();
+		*this /= magnitude();
 		return *this;
 	}
 }
