@@ -1,7 +1,7 @@
 #pragma once
 #include "Interpolation.h"
 #include "raylib.h"
-#include "PointsVectors.h"
+#include "vec2.h"
 #include <string>
 #include <ctime>
 

@@ -13,6 +13,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Trig", "Trig\Trig.vcxproj", "{9EF00FB4-9FBB-4A77-9521-2A2D3E59F3F8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tank", "Tank\Tank.vcxproj", "{C2E44356-2F73-4728-97EE-7F38FD0F59DF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73DFA658-53C3-4522-BE6C-E4C54749ED63} = {73DFA658-53C3-4522-BE6C-E4C54749ED63}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

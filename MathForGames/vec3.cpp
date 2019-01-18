@@ -146,7 +146,7 @@ vec3::operator const float*() const
 
 float vec3::magnitude() const
 {
-	int mag;
+	float mag;
 
 	mag = ((x * x) + (y * y) + (z * z));
 	mag = sqrtf(mag);
@@ -176,7 +176,7 @@ vec3 & vec3::normalize()
 	}
 	else
 	{
-		*this *= magnitude();
+		*this /= magnitude();
 		return *this;
 	}
 }
@@ -192,9 +192,12 @@ vec3 vec3::getNormalised() const
 	{
 		return n;
 	}
-	n.x /= magnitude();
-	n.y /= magnitude();
-	n.z /= magnitude();
+	float mag = magnitude();
+	n.x /= mag;
+	n.y /= mag;
+	n.z /= mag;
+
+	return n;
 }
 
 vec3 & vec3::scale(const vec3 & rhs)
@@ -219,11 +222,6 @@ vec3 operator*(const float lhs, const vec3 & rhs)
 	v3.x = rhs.x * lhs;
 	v3.y = rhs.y * lhs;
 	v3.z = rhs.z * lhs;
-
-	float scalar = 3.5f;
-	vec3 dir = { 0, 1, 1 };
-
-	vec3 newVelocity = scalar * dir;
 
 	return v3;
 }

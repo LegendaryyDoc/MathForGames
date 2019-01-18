@@ -1,5 +1,5 @@
 #include "player.h"
-#include "PointsVectors.h"
+#include "vec2.h"
 
 void player::distanceAway()
 {	

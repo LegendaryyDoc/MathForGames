@@ -1,4 +1,4 @@
-#include "PointsVectors.h"
+#include "vec2.h"
 #include <cfloat>
 #include <cmath>
 
@@ -219,11 +219,6 @@ vec2 operator*(const float lhs, const vec2 & rhs)
 
 	v3.x = rhs.x * lhs;
 	v3.y = rhs.y * lhs;
-
-	float scalar = 3.5f;
-	vec2 dir = { 0, 1 };
-
-	vec2 newVelocity = scalar * dir;
 
 	return v3;
 }

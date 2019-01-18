@@ -1,6 +1,6 @@
 #pragma once
 #include "vec3.h"
-#include "PointsVectors.h"
+#include "vec2.h"
 
 struct mat3
 {

@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "raylib.h"
-#include "PointsVectors.h"
+#include "vec2.h"
 #include "Matrices.h"
 #include "transform2d.h"
 #include "UTILS.h"

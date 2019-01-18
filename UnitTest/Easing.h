@@ -1,7 +1,7 @@
 #pragma once
 #include "EasingFunctions.h"
 #include "raylib.h"
-#include "PointsVectors.h"
+#include "vec2.h"
 
 class easingPlayer
 {

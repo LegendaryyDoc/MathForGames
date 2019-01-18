@@ -1,5 +1,5 @@
 #include "Matrices.h"
-#include "PointsVectors.h"
+#include "vec2.h"
 #include <cmath>
 
 mat3::mat3()

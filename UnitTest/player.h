@@ -1,6 +1,6 @@
 #pragma once
 #include "raylib.h"
-#include "PointsVectors.h"
+#include "vec2.h"
 
 class player
 {

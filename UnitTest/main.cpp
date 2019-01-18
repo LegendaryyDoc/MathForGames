@@ -1,6 +1,6 @@
 #include <iostream>
 #include "raylib.h"
-#include "PointsVectors.h" 
+#include "vec2.h" 
 #include "UTILS.h"
 #include "vec3.h"
 #include "player.h"
@@ -187,6 +187,26 @@ int main()
 	p1a.localScale = {1,1};
 
 	nassert("Transform2d world position", p1a.worldPosition(), vec2(2,5));
+
+	vec3 r1a, r1b, r1c;
+	float f1a = 2;
+	r1a = { 10, 5, 2 };
+	r1b = f1a * r1a;
+
+	nassert("vec3 multiplication by a float", r1b, vec3(20, 10, 4));
+
+	vec2 r2a, r2b;
+	float f1b = 2;
+	r2a = { 10 ,5 };
+	r2b = f1b * r2a;
+
+	nassert("vec2 multiplication by a float", r2b, vec2(20, 10));
+
+	vec3 r3a, r3b, r3c;
+	r3a = { 10, 5 , 2 };
+	r3a = r3a.getNormalised();
+
+	nassert("vec3 getNormalized", r3a, vec3(0.880451, 0.440225, 0.17609));
 
 	return 0;
 }

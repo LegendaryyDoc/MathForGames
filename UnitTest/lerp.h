@@ -1,5 +1,5 @@
 #pragma once
-#include "PointsVectors.h"
+#include "vec2.h"
 #include <vector>
 #include "raylib.h"
 #include "Interpolation.h"
